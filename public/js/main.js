@@ -6,14 +6,29 @@ require('bootstrap/dist/css/bootstrap.min.css');
 
 $(function () {
     $("#cur-load").fadeIn('fast');
-    $.get('/get?data=currency')
-        .done((res) => {
-            $("#cur-load").fadeOut('fast');
-            $.each(res, function (i, data) {
-                var el = "<option value='" + data + "'>" + data + "</option>";
-                $("#currency").append(el);
+
+    $(".numb-only").keypress(function (e) {
+        if (!RegExp(/([0-9.])\d*/g).test(e.key)) {
+            return false;
+        }
+    })
+
+    function getCurrency() {
+        $.get('/get?data=currency')
+            .always(() => {
+                $("#cur-load").fadeOut('fast');
             })
-        })
+            .done((res) => {
+                $.each(res, function (i, data) {
+                    var el = "<option value='" + data + "'>" + data + "</option>";
+                    $("#currency").append(el);
+                })
+            })
+            .fail((res) => {
+                swal("Oooopss!", "Ada kesalahan sistem! (err:#003)", "error");
+            })
+    }
+    getCurrency();
     $("#currency").on('change', function () {
         $("#pip-load").fadeIn('fast');
         $.get('/get?data=pip&cur=' + $(this).val())
@@ -35,7 +50,7 @@ $(function () {
                 if (typeof res.lot !== "undefined") {
                     $("#lot").text(res.lot);
                 } else {
-                    swal
+                    swal("Oooopss!", "Ada kesalahan sistem! (err:#002)", "error");
                 }
             })
             .fail((res) => {

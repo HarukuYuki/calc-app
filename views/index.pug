@@ -7,15 +7,15 @@ block content
             .form-group.input-group
                 .input-group-prepend 
                     .input-group-text MM
-                input.form-control(type="text",placeholder="Masukan MM",name="mm")
+                input.form-control.numb-only(type="text",placeholder="Masukan MM",name="mm")
             .form-group.input-group       
                 .input-group-prepend 
                     .input-group-text Position   
-                input.form-control(type="text",placeholder="Masukan posisi entry",name="pos")
+                input.form-control.numb-only(type="text",placeholder="Masukan posisi entry",name="pos")
             .form-group.input-group
                 .input-group-prepend 
                     .input-group-text SL
-                input.form-control(type="text",placeholder="Masukan SL",name="sl")
+                input.form-control.numb-only(type="text",placeholder="Masukan SL",name="sl")
             .form-group.input-group
                 .input-group-prepend 
                     .input-group-text Currency
@@ -27,7 +27,7 @@ block content
                     .input-group-text Pip Value
                         span.loader#pip-load
 
-                input#pip-value.form-control(type="text",placeholder="Pip Value",name="pip")
+                input#pip-value.form-control.numb-only(type="text",placeholder="Pip Value",name="pip")
             .form-group
                 .py-2
                     h4 Lot : 
