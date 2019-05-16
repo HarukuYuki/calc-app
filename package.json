@@ -1,0 +1,41 @@
+{
+  "name": "app_calc_lot",
+  "version": "1.0.0",
+  "description": "application for calculating lot",
+  "main": "app.js",
+  "dependencies": {
+    "acorn": "^6.1.1",
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.3.1",
+    "cheerio": "^1.0.0-rc.3",
+    "express": "^4.16.4",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.15.0",
+    "pug": "^2.0.3",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
+    "sweetalert": "^2.1.2",
+    "tough-cookie": "^3.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/register": "^7.4.4",
+    "css-loader": "^2.1.1",
+    "reload": "^3.0.1",
+    "shelljs": "^0.8.3",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.31.0",
+    "webpack-cli": "^3.3.2"
+  },
+  "scripts": {
+    "live": "nodemon -w *.* --ignore public/dist/* --ignore webpack.config.js -w views/*.* start.js"
+  },
+  "author": "FatihAziz",
+  "license": "ISC",
+  "keywords": [
+    "lot",
+    "trading",
+    "tools"
+  ]
+}

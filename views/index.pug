@@ -1,0 +1,39 @@
+extends layout
+
+block content
+    #main.container.p-3
+        h3.mb-4(style="color:#444") App Calculate Lot
+        form#calculate(action="/calc", method="post")
+            .form-group.input-group
+                .input-group-prepend 
+                    .input-group-text MM
+                input.form-control(type="number",placeholder="Masukan MM",name="mm")
+            .form-group.input-group       
+                .input-group-prepend 
+                    .input-group-text Position   
+                input.form-control(type="number",placeholder="Masukan posisi entry",name="pos")
+            .form-group.input-group
+                .input-group-prepend 
+                    .input-group-text SL
+                input.form-control(type="number",placeholder="Masukan SL",name="sl")
+            .form-group.input-group
+                .input-group-prepend 
+                    .input-group-text Currency
+                        span.loader#cur-load
+                select#currency.form-control(name="cur")
+                    option(value="#") --Pilih Mata Uang
+            .form-group.input-group
+                .input-group-prepend 
+                    .input-group-text Pip Value
+                        span.loader#pip-load
+
+                input#pip-value.form-control(type="text",placeholder="Pip Value",name="pip")
+            .form-group
+                .py-2
+                    h4 Lot : 
+                        span#lot
+                        span.loader#lot-load
+            .form-group
+                input.btn.btn-primary(type="submit",value="Calculate")
+
+    script(src="/dist/js/main.js")
